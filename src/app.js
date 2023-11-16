@@ -19,10 +19,6 @@ const httpServer = app.listen(PORT, () => {
 
 const io = new Server(httpServer)
 
-/* io.on('connection', socket => {
-    console.log(`Cliente con ID:${socket.id} conectado`)
-}) */
-
 app.use(express.json())
 app.use(express.urlencoded({ extended: true}))
 
