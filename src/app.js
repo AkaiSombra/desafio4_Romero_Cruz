@@ -27,10 +27,8 @@ app.set('view engine', 'handlebars')
 app.set('io', io)
 
 app.use('/', indexRouter)
-app.use('/', (req, res, next) => {
-    realTimeProductsRouter.io(io);
-    next();
-}, realTimeProductsRouter);
+
+app.use('/', (req, res, next) => { realTimeProductsRouter.io(io); next(); }, realTimeProductsRouter);
 app.use('/api/products', productsRouter)
 app.use('/api/carts', cartsRouter)
 app.set('views', `${__dirname}/views`)

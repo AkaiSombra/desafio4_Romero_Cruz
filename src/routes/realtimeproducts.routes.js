@@ -42,7 +42,8 @@ router.io = (io) => {
             ProductManager.products = JSON.parse(dataJSON)
             socket.emit('products', ProductManager.products)
         } catch(error){
-            res.status(400).send(error.message)
+            console.error(error.message)
+            socket.emit('error', { message: 'Error occurred while fetching products' })
           }
     })
 }
